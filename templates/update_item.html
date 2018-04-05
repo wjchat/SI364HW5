@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Update Item</title>
+</head>
+<body>
+	{% extends 'index.html' %}
+
+	{% block nav %}
+	    {{ super() }}
+	{% endblock %}
+	{% block content %}
+	<h1>{{ item.description }}</h1>
+
+	<form method = "POST">
+		{{ form.hidden_tag() }}
+		{{ form.priority.label }} {{ form.priority() }}
+		{{ form.submit() }}
+	</form>
+
+
+	<div>
+		{% for message in get_flashed_messages() %}
+		<strong>*** {{ message }} ***</strong>
+		{% endfor %}
+	</div>
+
+	{% endblock %}
+
+</body>
+</html>
